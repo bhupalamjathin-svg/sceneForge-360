@@ -1,0 +1,27 @@
+{
+  "forest_fog": {
+    "weather": "foggy",
+    "atmosphere": "dense fog",
+    "elements": ["trees", "moss", "ruins"]
+  },
+  "dungeon_torch": {
+    "weather": "clear",
+    "atmosphere": "dry",
+    "elements": ["torches", "stone walls", "chains"]
+  },
+  "city_rain": {
+    "weather": "rainy",
+    "atmosphere": "wet",
+    "elements": ["puddles", "neon signs", "fog"]
+  },
+  "desert_heat": {
+    "weather": "clear",
+    "atmosphere": "dry heat haze",
+    "elements": ["sand dunes", "rocks"]
+  },
+  "sci_fi_lab": {
+    "weather": "clear",
+    "atmosphere": "sterile",
+    "elements": ["metal panels", "holograms"]
+  }
+}

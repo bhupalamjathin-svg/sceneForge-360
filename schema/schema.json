@@ -1,0 +1,40 @@
+{
+  "scene": {
+    "type": "forest|dungeon|city|desert|sci-fi|ruins|mountains|beach",
+    "description": "",
+    "mood": "mystical|dark|bright|ominous|peaceful|cinematic",
+    "time_of_day": "dawn|morning|noon|sunset|dusk|night"
+  },
+  "environment": {
+    "weather": "clear|foggy|rainy|snowy|storm|windy",
+    "atmosphere": "dry|humid|dense fog|haze|magical particles|smoke",
+    "elements": ["trees","ruins","torches","rocks","neon signs"]
+  },
+  "camera": {
+    "angle": "low|eye|high|top|tilted|cinematic_low",
+    "fov": "number 10-120",
+    "distance": "close|mid|wide",
+    "movement": "static|tracking|panning|aerial"
+  },
+  "lighting": {
+    "type": "hdr|studio|overcast|sunlight|torchlight|neon",
+    "intensity": "number 0.0-1.0",
+    "direction": "top|front|side|back|mixed|soft",
+    "temperature": "warm|neutral|cool"
+  },
+  "colors": {
+    "palette": "emerald_teal|cyberpunk|natural_green|monochrome|warm_fantasy",
+    "contrast": "low|normal|high",
+    "saturation": "low|normal|high"
+  },
+  "render": {
+    "bit_depth": "8|16",
+    "format": "png|exr",
+    "resolution": "[width,height]",
+    "aspect_ratio": "16:9|21:9|1:1|9:16"
+  },
+  "variants": {
+    "count": "number 1-6",
+    "diversity": "low|medium|high"
+  }
+}

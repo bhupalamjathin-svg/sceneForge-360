@@ -1,0 +1,7 @@
+{
+  "emerald_teal": { "palette": "emerald_teal", "contrast": "high", "saturation": "normal" },
+  "warm_fantasy": { "palette": "warm_fantasy", "contrast": "normal", "saturation": "high" },
+  "cyberpunk": { "palette": "cyberpunk", "contrast": "high", "saturation": "high" },
+  "natural_green": { "palette": "natural_green", "contrast": "normal", "saturation": "normal" },
+  "monochrome": { "palette": "monochrome", "contrast": "low", "saturation": "low" }
+}

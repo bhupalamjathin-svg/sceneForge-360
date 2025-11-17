@@ -1,0 +1,7 @@
+{
+  "cinematic_low": { "angle": "low", "fov": 35, "distance": "mid" },
+  "wide_landscape": { "angle": "eye", "fov": 60, "distance": "wide" },
+  "close_drama": { "angle": "eye", "fov": 28, "distance": "close" },
+  "top_view": { "angle": "top", "fov": 45, "distance": "mid" },
+  "high_angle": { "angle": "high", "fov": 40, "distance": "mid" }
+}

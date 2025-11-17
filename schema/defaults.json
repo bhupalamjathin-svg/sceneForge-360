@@ -1,0 +1,40 @@
+{
+  "scene": {
+    "type": "forest",
+    "description": "dense forest with light fog",
+    "mood": "mystical",
+    "time_of_day": "dawn"
+  },
+  "environment": {
+    "weather": "foggy",
+    "atmosphere": "light haze",
+    "elements": ["trees", "moss"]
+  },
+  "camera": {
+    "angle": "eye",
+    "fov": 45,
+    "distance": "mid",
+    "movement": "static"
+  },
+  "lighting": {
+    "type": "hdr",
+    "intensity": 0.8,
+    "direction": "top",
+    "temperature": "neutral"
+  },
+  "colors": {
+    "palette": "natural_green",
+    "contrast": "normal",
+    "saturation": "normal"
+  },
+  "render": {
+    "bit_depth": 8,
+    "format": "png",
+    "resolution": [1920, 1080],
+    "aspect_ratio": "16:9"
+  },
+  "variants": {
+    "count": 3,
+    "diversity": "medium"
+  }
+}

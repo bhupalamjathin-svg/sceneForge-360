@@ -1,0 +1,39 @@
+{
+  "scene": {
+    "type": "city",
+    "description": "rain-soaked neon street with reflections",
+    "mood": "cinematic",
+    "time_of_day": "sunset"
+  },
+  "environment": {
+    "weather": "rainy",
+    "atmosphere": "wet neon glow",
+    "elements": ["neon signs", "puddles", "fog"]
+  },
+  "camera": {
+    "angle": "eye",
+    "fov": 55,
+    "distance": "mid"
+  },
+  "lighting": {
+    "type": "neon",
+    "intensity": 0.7,
+    "direction": "mixed",
+    "temperature": "cool"
+  },
+  "colors": {
+    "palette": "cyberpunk",
+    "contrast": "high",
+    "saturation": "high"
+  },
+  "render": {
+    "bit_depth": 8,
+    "format": "png",
+    "resolution": [2560, 1440],
+    "aspect_ratio": "21:9"
+  },
+  "variants": {
+    "count": 3,
+    "diversity": "high"
+  }
+}
