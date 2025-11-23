@@ -1,19 +1,24 @@
 # backend/main.py
 from pathlib import Path
+import uuid
+import requests
+import zipfile
 from typing import Any, Dict, List, Optional
-
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-
 from .fibo_client import generate_with_fibo, extract_image_urls
 
+# ------------------ Config ------------------
 app = FastAPI(title="SceneForge 360 Backend")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+OUTPUT_DIR = BASE_DIR / "output"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
 SCHEMA_PATH = BASE_DIR / "schema" / "schema.json"
 DEFAULTS_PATH = BASE_DIR / "schema" / "defaults.json"
 
-
+# ------------------ Pydantic Model ------------------
 class GenerationRequest(BaseModel):
     scene: Dict[str, Any]
     environment: Optional[Dict[str, Any]] = None
@@ -21,45 +26,68 @@ class GenerationRequest(BaseModel):
     lighting: Optional[Dict[str, Any]] = None
     colors: Optional[Dict[str, Any]] = None
     render: Optional[Dict[str, Any]] = None
-    variants: Optional[Dict[str, Any]] = None
+    variants: Optional[int] = 1  # fixed from Dict to int
 
+# ------------------ Helper Functions ------------------
+def make_job_folder() -> Path:
+    job_id = uuid.uuid4().hex[:8]
+    job_folder = OUTPUT_DIR / f"job_{job_id}"
+    job_folder.mkdir(parents=True, exist_ok=True)
+    return job_folder
 
-def merge_with_defaults(user_json: Dict[str, Any]) -> Dict[str, Any]:
-    """Merge user JSON with defaults.json (very simple deep merge)."""
-    import json
+def save_images_from_urls(urls: List[str], job_folder: Path) -> List[str]:
+    saved_files = []
+    for i, url in enumerate(urls):
+        ext = Path(url).suffix or ".png"
+        file_path = job_folder / f"variant_{i+1}{ext}"
+        r = requests.get(url)
+        r.raise_for_status()
+        file_path.write_bytes(r.content)
+        saved_files.append(str(file_path))
+    return saved_files
 
-    with DEFAULTS_PATH.open("r", encoding="utf-8") as f:
-        defaults = json.load(f)
+def make_zip(folder: Path) -> Path:
+    zip_path = folder.with_suffix(".zip")
+    with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED) as zf:
+        for file in folder.iterdir():
+            if file.is_file():
+                zf.write(file, file.name)
+    return zip_path
 
-    def deep_merge(base: Dict[str, Any], override: Dict[str, Any]) -> Dict[str, Any]:
-        out = dict(base)
-        for k, v in override.items():
-            if isinstance(v, dict) and isinstance(out.get(k), dict):
-                out[k] = deep_merge(out[k], v)
-            else:
-                out[k] = v
-        return out
+def get_preview(saved_files: List[str]) -> str:
+    return saved_files[0] if saved_files else ""
 
-    return deep_merge(defaults, user_json)
-
-
+# ------------------ Endpoints ------------------
 @app.post("/generate")
 def generate(req: GenerationRequest):
-    """
-    Main endpoint for SceneForge 360.
-
-    1. Merge user payload with defaults
-    2. Send structured JSON to FIBO
-    3. Return image URLs + raw response
-    """
     try:
-        merged = merge_with_defaults(req.dict())
-        fibo_response = generate_with_fibo(merged, log_name="generate_single.json")
-        urls: List[str] = extract_image_urls(fibo_response)
+        all_saved_files = []
+        job_folder = make_job_folder()
+
+        # Generate variants
+        for variant_index in range(req.variants):
+            payload = dict(req.dict())
+            payload['meta'] = {"variant_index": variant_index}
+
+            fibo_response = generate_with_fibo(payload, log_name=f"variant_{variant_index}.json")
+            urls = extract_image_urls(fibo_response)
+            saved_files = save_images_from_urls(urls, job_folder)
+            all_saved_files.extend(saved_files)
+
+        preview = get_preview(all_saved_files)
+        zip_file = make_zip(job_folder)
+
         return {
             "status": "ok",
-            "image_urls": urls,
-            "raw": fibo_response
+            "preview": preview,
+            "saved_files": all_saved_files,
+            "zip": str(zip_file)
         }
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+# ------------------ Health Check ------------------
+@app.get("/health")
+def health():
+    return {"status": "ok", "jobs_dir": str(OUTPUT_DIR)}

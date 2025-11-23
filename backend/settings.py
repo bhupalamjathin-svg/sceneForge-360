@@ -4,7 +4,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # Load .env file if present
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 env_path = BASE_DIR / ".env"
 if env_path.exists():
     load_dotenv(env_path)
