@@ -7,9 +7,12 @@ export default function About() {
 
   return (
     <div className="about-page">
-      <div className="about-container glassy">
+      <div className="glassy">
 
-        <h1 className="title">Welcome to <span>SceneForge</span></h1>
+        <h1 className="title">
+          Welcome to <span>SceneForge</span>
+        </h1>
+
         <p className="subtitle">
           Turn your imagination into beautiful AI-generated images.
         </p>
@@ -32,27 +35,28 @@ export default function About() {
           </div>
         </div>
 
-        {/* Tutorial Section */}
-        <div className="tutorial">
-          <h2>How It Works</h2>
+        {/* Tutorial */}
+        <div className="feature-card">
+          <h2>How to Use SceneForge?</h2>
           <ul>
-            <li>1. Create an account to save your images & settings.</li>
-            <li>2. Enter your prompt describing the scene.</li>
-            <li>3. Select your mode, angle and other options.</li>
-            <li>4. Hit "Generate" and watch the magic happen!</li>
+            <li>🖊️ Enter a creative prompt</li>
+            <li>🎚️ Adjust style & settings</li>
+            <li>⚡ Generate with one click</li>
+            <li>💾 Download your artwork</li>
           </ul>
         </div>
 
-        {/* Buttons */}
-        <div className="buttons">
-          <button className="btn start" onClick={() => navigate("/signin")}>
-            Get Started
-          </button>
+    <div className="buttons">
+  <button className="btn start" onClick={() => navigate("/getstarted")}>
+    Start Creating
+  </button>
 
-          <button className="btn create" onClick={() => navigate("/")}>
-            Create Account
-          </button>
-        </div>
+  <button className="btn create" onClick={() => navigate("/SignIn")}>
+    Create Account
+  </button>
+</div>
+
+
 
       </div>
     </div>

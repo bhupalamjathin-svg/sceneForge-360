@@ -1,5 +1,8 @@
 // src/components/AuthForm.jsx
 import { useState } from "react";
+import "./AuthForm.css";
+
+
 
 export default function AuthForm({ isSignUp, onSubmit }) {
   const [name, setName] = useState("");

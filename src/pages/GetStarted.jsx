@@ -54,7 +54,7 @@ export default function GetStarted() {
           </div>
         </div>
 
-        <button className="gs-btn" onClick={() => navigate("/")}>
+        <button className="gs-btn" onClick={() => navigate("/Login")}>
           Continue to Login
         </button>
       </div>

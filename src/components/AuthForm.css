@@ -1,0 +1,6 @@
+
+/* Make ALL placeholder text black */
+.auth-container input::placeholder {
+  color: #16a9d2 !important;
+  opacity: 1;   /* ensures full visibility */
+}

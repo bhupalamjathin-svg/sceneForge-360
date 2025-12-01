@@ -12,20 +12,15 @@ export default function PromptPage() {
   const [aspectRatio, setAspectRatio] = useState("16:9");
   const [numImages, setNumImages] = useState(1);
   const [imageType, setImageType] = useState("Photo");
-  const [isActive, setIsActive] = useState(false); // whether prompt bar moved to top
-  const [isGenerating, setIsGenerating] = useState(false); // for small UX lock while animating
+  const [isGenerating, setIsGenerating] = useState(false);
 
   const navigate = useNavigate();
 
   const handleGenerate = () => {
     if (!prompt.trim() || isGenerating) return;
 
-    // start the "page slide up" animation
     setIsGenerating(true);
-    setIsActive(true);
 
-    // after animation finishes, navigate and pass state
-    // 700ms matches CSS transition duration below
     setTimeout(() => {
       navigate("/generated", {
         state: { prompt, angle, hdr, aspectRatio, numImages, imageType },
@@ -34,65 +29,106 @@ export default function PromptPage() {
   };
 
   return (
-    <div className="prompt-page futuristic">
+    <div className="prompt-page">
+      {/* Particle background */}
       <ParticleBackground tint={[110, 85, 255]} intensity={70} />
-      <div className={`left-side-panel ${isActive ? "compact" : ""}`}>
-        {/* Left controls always visible on left; glossy apple style */}
-        <div className="left-inner">
-          <h3 className="brand">SceneForge</h3>
+
+      {/* Sidebar */}
+      <aside className="sidebar">
+        <h2 className="brand">SceneForge</h2>
+
+        <div className="control-section">
+          <h4>Scene Settings</h4>
           <div className="control-group">
             <label>Angle</label>
-            <input value={angle} onChange={(e) => setAngle(e.target.value)} />
-          </div>
-          <div className="control-group">
-            <label>HDR</label>
-            <select value={String(hdr)} onChange={(e) => setHdr(e.target.value === "true")}>
-              <option value="true">On</option>
-              <option value="false">Off</option>
+            <select value={angle} onChange={(e) => setAngle(e.target.value)}>
+              <option>0°</option>
+              <option>45°</option>
+              <option>90°</option>
+              <option>180°</option>
+              <option>360°</option>
             </select>
           </div>
-          <div className="control-group">
-            <label>Aspect</label>
-            <input value={aspectRatio} onChange={(e) => setAspectRatio(e.target.value)} />
-          </div>
-          <div className="control-grid">
-            <div>
-              <label>Images</label>
-              <input type="number" min="1" max="10" value={numImages} onChange={(e) => setNumImages(e.target.value)} />
+
+          <div className="control-group toggle-group">
+            <label>HDR</label>
+            <div className="toggle-switch" onClick={() => setHdr(!hdr)}>
+              <div className={`toggle-thumb ${hdr ? "on" : "off"}`}></div>
             </div>
-            <div>
+          </div>
+
+          <div className="control-group">
+            <label>Aspect Ratio</label>
+            <select
+              value={aspectRatio}
+              onChange={(e) => setAspectRatio(e.target.value)}
+            >
+              <option>1:1</option>
+              <option>4:3</option>
+              <option>3:2</option>
+              <option>16:9</option>
+              <option>21:9</option>
+              <option>9:16</option>
+            </select>
+          </div>
+
+          <div className="control-grid">
+            <div className="control-group">
+              <label>Images</label>
+              <input
+                type="number"
+                min="1"
+                max="10"
+                value={numImages}
+                onChange={(e) => setNumImages(e.target.value)}
+              />
+            </div>
+
+            <div className="control-group">
               <label>Type</label>
-              <select value={imageType} onChange={(e) => setImageType(e.target.value)}>
+              <select
+                value={imageType}
+                onChange={(e) => setImageType(e.target.value)}
+              >
                 <option>Photo</option>
-                <option>Illustration</option>
+                <option>360°</option>
                 <option>3D</option>
               </select>
             </div>
           </div>
         </div>
-      </div>
+      </aside>
 
-      <div className={`prompt-bar ${isActive ? "active top" : ""}`} role="search">
-        <input
-          type="text"
-          placeholder="Describe the scene you want..."
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          onFocus={() => setIsActive(true)}
-          onBlur={() => {
-            if (!prompt.trim()) setIsActive(false);
-          }}
-        />
-        <div className="prompt-icons">
-          <FaMagic title="Surprise Me" className="icon" onClick={() => setPrompt("A neon city at dusk, cinematic")} />
-          <FaMicrophone title="Voice Input" className="icon" onClick={() => alert("Voice input coming soon!")} />
-          <FaCheck title="Generate" className="icon generate" onClick={handleGenerate} />
+      {/* Main content */}
+      <main className="main-content">
+        <div className="prompt-wrapper">
+          <input
+            type="text"
+            placeholder="Describe your scene..."
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+          />
+          <div className="prompt-actions">
+            <FaMagic
+              title="Surprise Me"
+              onClick={() =>
+                setPrompt("A neon futuristic city glowing at night")
+              }
+            />
+            <FaMicrophone
+              title="Voice Input"
+              onClick={() => alert("Voice input coming soon!")}
+            />
+            <FaCheck title="Generate" onClick={handleGenerate} />
+          </div>
         </div>
-      </div>
 
-      <div className="hint" style={{ opacity: isActive ? 0 : 1 }}>
-       
-      </div>
+        <div className="preview-area">
+          <p className="preview-text">
+            {prompt ? `Preview for: "${prompt}"` : "Your scene preview will appear here."}
+          </p>
+        </div>
+      </main>
     </div>
   );
 }
