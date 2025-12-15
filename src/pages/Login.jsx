@@ -1,30 +1,58 @@
-// src/pages/Login.jsx
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import AuthForm from "../components/AuthForm";
-import "./SignIn.css"; // reuse same styles
+import { Link, useNavigate } from "react-router-dom";
+import styles from "./Login.module.css";
 
 export default function Login() {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = async ({ email, password }) => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/prompt"); // redirect after login
-    } catch (err) {
-      alert(err.message);
+      navigate("/prompt");
+    } catch (error) {
+      alert(error.message);
     }
   };
 
   return (
-    <div className="signin-container">
-      <h2>Login</h2>
-      <AuthForm isSignUp={false} onSubmit={handleLogin} />
-      <p className="toggle-text">
-        Don't have an account?{" "}
-        <span onClick={() => navigate("/signin")}>Sign Up</span>
-      </p>
+    <div className={styles.loginPage}>
+      <div className={styles.loginContainer}>
+        <h2 className={styles.title}>Login</h2>
+
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            className={styles.input}
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <input
+            type="password"
+            className={styles.input}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button type="submit" className={styles.button}>
+            Login
+          </button>
+        </form>
+
+        <p className={styles.footerText}>
+          Don't have an account?{" "}
+          <Link className={styles.footerLink} to="/signin">
+            Sign Up
+          </Link>
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,104 @@
+:global(html, body) {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Login Page Wrapper */
+.loginPage {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+/* Login Container */
+.loginContainer {
+   background: rgba(20, 20, 20, 0.4);
+background: transparent;
+  color: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 183, 255, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Heading */
+.title {
+    color: #00b7ff;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px #00b7ff;
+}
+
+/* Inputs */
+.input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+/* Button */
+.button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #00b7ff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #0091cc;
+}
+
+/* Footer Link */
+.footerText {
+    margin-top: 15px;
+    color: rgb(247, 246, 246);
+}
+
+.footerLink {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+.footerLink:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .loginContainer {
+        padding: 30px 20px;
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .loginContainer {
+        padding: 20px 15px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .input,
+    .button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

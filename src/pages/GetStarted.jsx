@@ -1,14 +1,17 @@
 // src/pages/GetStarted.jsx
 import { useNavigate } from "react-router-dom";
 import "./GetStarted.css";
+import ParticleBackground from "../components/ParticleBackground";
 
 export default function GetStarted() {
   const navigate = useNavigate();
 
   return (
     <div className="gs-page">
-      <div className="gs-container glass">
+      {/* Particle background */}
+      <ParticleBackground tint={[50, 120, 255]} intensity={80} />
 
+      <div className="gs-container glass">
         <h1 className="gs-title">Get Started with SceneForge</h1>
         <p className="gs-sub">
           Here’s everything you need to know before creating your first AI image.

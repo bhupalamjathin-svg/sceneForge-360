@@ -1,0 +1,88 @@
+/* Full Page */
+.page {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* same background as your screenshot */
+    background: linear-gradient(to bottom right, #020617, #0b162c);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main Card – transparent & glowing */
+.card {
+    width: 380px;
+    padding: 30px;
+    border-radius: 20px;
+
+    background: rgba(0, 0, 0, 0); /* fully transparent */
+    box-shadow: 0 0 25px rgba(0, 195, 255, 0.4);
+
+    text-align: center;
+}
+
+/* Title */
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0ae0ff;
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+.input {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+
+    background: #ffffff; /* white */
+    font-size: 15px;
+    color: #000;
+}
+
+/* Placeholder BLUE */
+.input::placeholder {
+    color: #009dff;
+    font-weight: 500;
+}
+
+/* Button */
+.button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+
+    background: #00aaff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+
+    box-shadow: 0 0 15px rgba(0, 180, 255, 0.7);
+}
+
+.button:hover {
+    background: #0090e6;
+}
+
+/* Toggle text (yellow like screenshot) */
+.toggle {
+    margin-top: 12px;
+    color: #ffd000;    /* yellow link */
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Error message */
+.error {
+    color: #ff3b3b;
+    font-size: 14px;
+}

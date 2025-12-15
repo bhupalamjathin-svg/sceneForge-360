@@ -1,0 +1,261 @@
+/* -------------------------------------- */
+/* 1. Page Wrapper (SAFE — no global styles) */
+/* -------------------------------------- */
+.page {
+    min-height: 50vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    color: #f0f0f0;
+    
+}
+
+/* -------------------------------------- */
+/* 2. Glassy Main Box */
+/* -------------------------------------- */
+.glassy {
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+
+    background: rgba(20, 20, 60, 0.5);
+    backdrop-filter: blur(px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 50px 40px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(53, 105, 216, 0.6);
+
+    transition: all 0.4s ease-in-out;
+}
+
+.glassy:hover {
+    background: rgba(20, 20, 60, 0.7);
+    backdrop-filter: blur(20px);
+    transform: translateY(-5px);
+}
+
+/* -------------------------------------- */
+/* 3. Typography */
+/* -------------------------------------- */
+.title {
+    font-size: 3em;
+    margin-bottom: 0px;
+}
+
+.title span {
+    color: #60c0ff;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.3em;
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+
+/* -------------------------------------- */
+/* Features Layout */
+/* -------------------------------------- */
+.features {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 0px;
+}
+
+/* Feature Card */
+.card {
+    flex: 1;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: left;
+
+    background: rgba(40, 60, 120, 0.2);
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(150, 180, 255, 0.25);
+    box-shadow: 
+        0 0 20px rgba(80, 140, 255, 0.35),
+        inset 0 0 25px rgba(255, 255, 255, 0.1);
+
+    transition: 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    background: rgba(60, 90, 160, 0.28);
+    box-shadow:
+        0 0 30px rgba(100, 170, 255, 0.55),
+        inset 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+.card h3 {
+    font-size: 1.2em;
+    color: white;
+}
+
+.card p {
+    font-size: 0.95em;
+    opacity: 0.85;
+}
+
+/* -------------------------------------- */
+/* Tutorial Section */
+/* -------------------------------------- */
+.tutorial {
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 600px;
+
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.tutorial h2 {
+    font-size: 1.6em;
+}
+
+.tutorial ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tutorial li {
+    padding: 5px 0;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* -------------------------------------- */
+/* Buttons */
+/* -------------------------------------- */
+.buttons {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.btn {
+    padding: 14px 35px;
+    border-radius: 12px;
+    font-size: 1.25em;
+    font-weight: 600;
+    cursor: pointer;
+    min-width: 200px;
+
+    border: none;
+    color: #0e1325;
+
+    background: linear-gradient(135deg, #5be7ff, #7a6cff);
+
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow:
+        0 0 18px rgba(120, 200, 255, 0.7),
+        0 0 35px rgba(110, 100, 255, 0.55);
+}
+
+.start {
+    background: linear-gradient(135deg, #5be7ff, #6a8bff);
+}
+
+.create {
+    background: linear-gradient(135deg, #7a6cff, #5be7ff);
+}
+
+/* -------------------------------------- */
+/* Responsiveness */
+/* -------------------------------------- */
+@media (max-width: 850px) {
+    .features {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 2.2em;
+    }
+
+    .glassy {
+        padding: 30px 20px;
+    }
+}
+/* -------------------------------------- */
+/* GLOBAL SCALE (Medium size) – ABOUT PAGE */
+/* -------------------------------------- */
+
+/* Overall page scale */
+.about-page {
+    transform: scale(0.95);
+    transform-origin: top center;
+}
+
+/* Glass container */
+.about-glassy {
+    padding: 45px 35px !important;
+    max-width: 880px !important;
+}
+
+/* Headings */
+.about-title {
+    font-size: 2.7em !important;
+}
+
+.about-subtitle {
+    font-size: 1.15em !important;
+}
+
+/* Feature cards */
+.about-feature-card {
+    padding: 20px !important;
+}
+
+.about-feature-card h3 {
+    font-size: 1.15em !important;
+    margin-bottom: 8px;
+}
+
+.about-feature-card p {
+    font-size: 0.95em !important;
+}
+
+/* Buttons */
+.about-btn {
+    padding: 12px 26px !important;
+    font-size: 1.1em !important;
+    min-width: 170px !important;
+}
+
+/* Tutorial section */
+.about-tutorial-section {
+    padding: 18px !important;
+}
+
+.about-tutorial-section h2 {
+    font-size: 1.35em !important;
+    text-align: center;
+}
+
+.about-tutorial-section ul {
+    font-size: 1.05em !important;
+}
