@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 📘 SceneForge 360 — AI-Controlled Scene Generator (Using FIBO)
 
 SceneForge 360 is a next-generation JSON-native AI image generation tool that allows developers, artists, and game designers to generate fully controllable 2D and 360° environments using the FIBO visual foundation model.
@@ -160,3 +161,13 @@ Teammate 3 (You) — Schema, presets, 360 logic, documentation
 Teammate 4 — Exporting & file management
 
 Teammate 5 — Demo video + presentation
+=======
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+>>>>>>> 4c3e0ee63703ab99b639deeaceb84997f8735192

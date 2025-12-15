@@ -1,0 +1,74 @@
+.gs-page {
+  min-height: 100vh;
+  background: #030b1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-family: "Poppins", sans-serif;
+}
+
+.gs-container {
+  width: 900px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 25px rgba(0, 140, 255, 0.4);
+  color: white;
+  animation: fade 0.8s ease;
+}
+
+.gs-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #1ea1ff;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.gs-sub {
+  text-align: center;
+  opacity: 0.8;
+  margin-bottom: 35px;
+}
+
+.gs-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 35px;
+}
+
+.gs-box {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 0 15px rgba(0, 140, 255, 0.25);
+}
+
+.gs-box h3 {
+  color: #1ea1ff;
+  margin-bottom: 10px;
+}
+
+.gs-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #6020ff, #09d1ff);
+  border: none;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.gs-btn:hover {
+  opacity: 0.85;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

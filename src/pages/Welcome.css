@@ -1,0 +1,82 @@
+/* Full Screen Background */
+.welcome-container {
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at center, #091428, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Glowing Card */
+.glow-card {
+  width: 90%;
+  max-width: 520px;
+  padding: 45px 35px;
+  text-align: center;
+  background: rgba(15, 15, 20, 0.8);
+  border-radius: 20px;
+
+  box-shadow:
+    0 0 40px rgba(0, 180, 255, 0.4),
+    0 0 90px rgba(0, 180, 255, 0.2);
+}
+
+/* Title */
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #29d2ff;
+  text-shadow: 0 0 15px rgba(41, 210, 255, 1);
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 16px;
+  color: #cedeff;
+  margin-bottom: 35px;
+  line-height: 1.5;
+}
+
+/* Button Group */
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Buttons */
+.btn {
+  padding: 14px 0;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+/* Primary button */
+.btn.primary {
+  background: linear-gradient(90deg, #55d5ff, #0096ff);
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 160, 255, 0.8);
+}
+
+.btn.primary:hover {
+  box-shadow: 0 0 30px rgba(0, 190, 255, 1);
+}
+
+/* Secondary button */
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #74c9ff;
+  border: 1px solid rgba(120, 200, 255, 0.5);
+}
+
+.btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0 0 20px rgba(180, 230, 255, 0.4);
+}

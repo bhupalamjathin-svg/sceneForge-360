@@ -1,0 +1,32 @@
+/* Reset browser padding and margin */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth fonts */
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #030b1a;     /* Deep blue background like the UI */
+  color: white;
+  height: 100%;
+}
+
+/* Remove link underline */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove focus outline on click (optional) */
+button,
+input,
+select {
+  outline: none;
+}
