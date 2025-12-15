@@ -1,0 +1,7 @@
+{
+  "hdr_bright": { "type": "hdr", "intensity": 0.9, "direction": "top", "temperature": "neutral" },
+  "fog_ambient": { "type": "foggy", "intensity": 0.6, "direction": "soft", "temperature": "cool" },
+  "dungeon_dark": { "type": "ambient", "intensity": 0.3, "direction": "side", "temperature": "warm" },
+  "sunset_warm": { "type": "sunlight", "intensity": 0.8, "direction": "back", "temperature": "warm" },
+  "neon_cyber": { "type": "neon", "intensity": 0.7, "direction": "mixed", "temperature": "cool" }
+}

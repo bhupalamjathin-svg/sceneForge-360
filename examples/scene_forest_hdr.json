@@ -1,0 +1,39 @@
+{
+  "scene": {
+    "type": "forest",
+    "description": "ancient mossy ruins, glowing fog, soft god rays",
+    "mood": "mystical",
+    "time_of_day": "dawn"
+  },
+  "environment": {
+    "weather": "foggy",
+    "atmosphere": "magical particles",
+    "elements": ["ruins", "trees", "moss"]
+  },
+  "camera": {
+    "angle": "low",
+    "fov": 40,
+    "distance": "wide"
+  },
+  "lighting": {
+    "type": "hdr",
+    "intensity": 0.85,
+    "direction": "top",
+    "temperature": "neutral"
+  },
+  "colors": {
+    "palette": "emerald_teal",
+    "contrast": "high",
+    "saturation": "normal"
+  },
+  "render": {
+    "bit_depth": 16,
+    "format": "exr",
+    "resolution": [3840, 2160],
+    "aspect_ratio": "16:9"
+  },
+  "variants": {
+    "count": 4,
+    "diversity": "medium"
+  }
+}

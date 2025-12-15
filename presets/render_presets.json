@@ -1,0 +1,6 @@
+{
+  "standard_1080p": { "bit_depth": 8, "format": "png", "resolution": [1920,1080], "aspect_ratio": "16:9" },
+  "ultra_4k": { "bit_depth": 8, "format": "png", "resolution": [3840,2160], "aspect_ratio": "16:9" },
+  "hdr_exr": { "bit_depth": 16, "format": "exr", "resolution": [1920,1080], "aspect_ratio": "16:9" },
+  "ultra_wide": { "bit_depth": 8, "format": "png", "resolution": [2560,1080], "aspect_ratio": "21:9" }
+}
