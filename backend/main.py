@@ -10,7 +10,7 @@ from pydantic import BaseModel
 from urllib.parse import urlparse
 
 from .auth_routes import router as auth_router
-from .fibo_client import generate_with_fibo, extract_image_urls
+from fibo_client import generate_with_fibo, extract_image_urls
 
 app = FastAPI(title="SceneForge 360 Backend")
 app.include_router(auth_router)
