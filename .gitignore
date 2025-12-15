@@ -1,3 +1,14 @@
-"backend/.env" 
-"__pycache__/" 
-"*.pyc" 
+# Python
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Logs & outputs
+backend/logs/
+output/
+
+# OS / editor junk
+.DS_Store
+.vscode/
